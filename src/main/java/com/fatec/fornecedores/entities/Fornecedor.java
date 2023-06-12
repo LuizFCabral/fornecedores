@@ -1,6 +1,8 @@
 package com.fatec.fornecedores.entities;
 
 
+import java.io.Serializable;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -10,7 +12,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "TBL_FORNECEDOR")
-public class Fornecedor {
+public class Fornecedor implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
