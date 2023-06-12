@@ -13,6 +13,10 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "TBL_FORNECEDOR")
 public class Fornecedor implements Serializable{
+
+    public Fornecedor(){
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
