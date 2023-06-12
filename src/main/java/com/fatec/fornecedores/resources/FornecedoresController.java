@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,7 +39,7 @@ public class FornecedoresController {
         return ResponseEntity.ok().body(fornecedores);
     }
 
-    @DeleteMapping
+    @DeleteMapping("{id}")
     public ResponseEntity<Void> deleteFornecedor(@PathVariable int id){
         fornecedorService.deleteFornecedor(id);
         return ResponseEntity.noContent().build();
@@ -50,6 +51,7 @@ public class FornecedoresController {
         return ResponseEntity.ok().build();
     }
 
+    @PostMapping
     public ResponseEntity<Fornecedor> saveFornecedor(@RequestBody Fornecedor fornecedor){
         Fornecedor fornecedorSalvo = fornecedorService.save(fornecedor);
         URI location = ServletUriComponentsBuilder
